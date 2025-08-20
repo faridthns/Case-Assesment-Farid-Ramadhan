@@ -1,13 +1,350 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap');
+
+* {
+  font-family: 'Nunito', cursive;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Bagian Navbar */
+.navbar-section {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0 2rem;
+  justify-content: space-between;
+  background: #465C88;
+  color: #E9E3DF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #E9E3DF;
+}
+
+/* Bagian Hero */
+.hero-section {
+  padding: 6rem 0 ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/public/img/hero.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-section h1, .hero-section h3, .hero-section button {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomIn 1s ease-out forwards;
+}
+
+.daftar-button {
+  background: #ff5722;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.daftar-button:hover {
+  background: #e64a19;
+}
+
+.daftar-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.daftar-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.daftar-button:hover span {
+  padding-right: 25px;
+}
+
+.daftar-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Bagian Deskripsi Kelas */
+.about-section {
+  padding: 4rem 3rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1rem;  
+}
+
+.deskripsi h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: left;
+}
+
+.deskripsi p {
+  text-align: left;
+}
+
+.deskripsi .nameClass {
+  font-weight: bold;
+}
+
+.manfaat {
+  display: flex;
+  justify-content: end;
+}
+
+.manfaat h3 {
+  margin: 0;
+}
+
+.card {
+  width: 20rem;
+  padding: 2rem;
+  border: #333 solid 3px;
+  border-radius: 25px;
+  text-align: left;
+  margin: auto 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card ul {
+  padding: 0;
+  padding-left: 1rem;
+}
+
+/* Bagian Feedback */
+
+.feedback {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  place-items: center;
+  gap: 2rem;
+}
+
+.feedback-header {
+  margin-bottom: 1rem;
+}
+
+.feedback-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.feedback-role {
+  font-size: 0.875rem;
+  color: #777;
+  margin: 0;
+}
+
+.feedback-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Section CTA */
+#cta {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/public/img/section-cta.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 20px;
+  margin: 4rem auto;
+  max-width: 900px;
+  height: max-content;
+}
+
+.cta-container h2 {
+  font-size: 2rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.cta-container p {
+  font-size: 1.1rem;
+  margin: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background: #ff5722;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: #e64a19;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 1rem 3rem;
+}
+
+.footer-section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.footer h3 {
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 1rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  /* border-top: 1px solid #333; */
+  /* margin-top: 2rem; */
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* For Smartphone */
+@media (max-width: 392px) { 
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar h1 {
+    display: none;
+  }
+
+  .navbar ul {
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .hero-section h1 {
+    font-size: 1rem;
+  }
+  
+  .hero-section h3 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+  }
+  
+  p {
+    font-size: 0.8rem;
+  }
+
+  .card {
+    width: fit-content;
+  }
+}
+
+/* For Tablet */
+@media (max-width: 991.98px) { 
+  .hero-section h1 {
+    font-size: 2rem;
+    margin: 0 1rem;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .deskripsi {
+    margin: 0 auto;
+  }
+
+  .deskripsi h1 {
+    text-align: center;
+  }
+
+  .deskripsi p {
+    text-align: justify;
+  }
+  
+  .manfaat {
+    justify-content: center;
+  }
+  
+  #cta {
+    width: 80vw;
+    margin: 2rem auto;
+  }
+}
+
+/* Animasi Hero */
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
